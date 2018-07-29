@@ -5,6 +5,8 @@
  */
 package com.library.model;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Hasa_qs81
@@ -15,16 +17,19 @@ public class User {
     private String surname;
     private String login;
     private String password;
+    private LocalDateTime lastLoginTime;
 
     public User() {
     }
 
-    public User(int id, String name, String surname, String login, String password) {
+    public User(int id, String name, String surname, String login, String password, LocalDateTime localDateTime) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.login = login;
         this.password = password;
+        this.lastLoginTime = localDateTime;
+        
     }
 
     public int getId() {
@@ -65,6 +70,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public void setLastLoginTime(LocalDateTime toLocalDateTime) {
+       this.lastLoginTime = lastLoginTime;
+    }
+
+    public LocalDateTime getLastLoginTime() {
+       return lastLoginTime;
     }
     
     

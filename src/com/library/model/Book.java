@@ -11,15 +11,17 @@ package com.library.model;
  */
 public class Book {
     private int id;
-    private Book bookname;
+    private String genre;
+    private String title;
     private Author author;
 
     public Book() {
     }
 
-    public Book(int id, Book bookname, Author author) {
+    public Book(int id, String genre, String title, Author author) {
         this.id = id;
-        this.bookname = bookname;
+        this.genre = genre;
+        this.title = title;
         this.author = author;
     }
 
@@ -31,12 +33,20 @@ public class Book {
         this.id = id;
     }
 
-    public Book getBookname() {
-        return bookname;
+    public String getGenre() {
+        return genre;
     }
 
-    public void setBookname(Book bookname) {
-        this.bookname = bookname;
+    public void setGenre(String genre) {
+        this.genre = genre;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public Author getAuthor() {
@@ -47,8 +57,5 @@ public class Book {
         this.author = author;
     }
     
-
-   
-    
-    
+      
 }

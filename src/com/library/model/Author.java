@@ -11,16 +11,14 @@ package com.library.model;
  */
 public class Author {
     private int id;
-    private String name;
-    private String surname;
+    private String fullName;
 
     public Author() {
     }
 
-    public Author(int id, String name, String surname) {
+    public Author(int id, String fullName) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
+        this.fullName = fullName;
     }
 
     public int getId() {
@@ -31,22 +29,12 @@ public class Author {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getFullName() {
+        return fullName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-    
-    
     
 }

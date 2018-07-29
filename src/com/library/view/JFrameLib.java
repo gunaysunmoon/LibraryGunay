@@ -1,6 +1,12 @@
 package com.library.view;
 
 
+import com.library.dao.AdminDao;
+import com.library.dao.AdminDaoImpl;
+import com.library.dao.UserDao;
+import com.library.dao.UserDaoImpl;
+import com.library.model.Admin;
+import com.library.model.User;
 import java.awt.event.ActionListener;
 import javax.swing.ComboBoxModel;
 import javax.swing.JComboBox;
@@ -18,8 +24,11 @@ import javax.swing.JTextField;
  * @author Hasa_qs81
  */
 public class JFrameLib extends javax.swing.JFrame {
+    AdminDao adminDao= new AdminDaoImpl();
+    UserDao userDao = new UserDaoImpl();
+    
 
-    private ComboBoxModel PatternernjFrameLib;
+// private ComboBoxModel PatternernjFrameLib;
 
     /**
      * Creates new form JFrameLib
@@ -27,6 +36,8 @@ public class JFrameLib extends javax.swing.JFrame {
     public JFrameLib() {
         initComponents();
     }
+            
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -119,7 +130,26 @@ public class JFrameLib extends javax.swing.JFrame {
     String password = jPasswordFieldPassword.getText();
     String role = jComboBoxChoose.getSelectedItem().toString();
     if (role.equals("User")){
+        User user = userDao.loginAsUser(username,password);
+        System.out.println(user);        
+        if(user == null){
+        JOptionPane.showMessageDialog(null, "Invalid!");
+        }
+        if(user!=null){
+        JOptionPane.showConfirmDialog(rootPane, username);
+        }
+        
     } else if (role.equals("Admin")){
+        Admin admin = adminDao.loginAsAdmin(username, password);
+        System.out.print(admin);
+        if (admin == null){
+        JOptionPane.showMessageDialog(null, "Invalid!");
+        }else{
+        new JFrameAdmin ().setVisible(true);
+        this.setVisible(false);
+               
+        }        
+        
     } else {
         JOptionPane.showMessageDialog(this, "Please select role!");
     }

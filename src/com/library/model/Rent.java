@@ -70,8 +70,7 @@ public class Rent {
         this.return_date = return_date;
     }
 
-    
-    
+       
     
     
     
